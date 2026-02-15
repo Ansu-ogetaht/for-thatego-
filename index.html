@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Love ❤️ Thatego</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:Poppins;
+background:linear-gradient(135deg,#df597a,#ff739b);
+overflow-x:hidden;
+color:#000000;
+text-align:center;
+}
+
+/* 🌸 FLOWERS */
+.flower{
+position:fixed;
+top:-50px;
+font-size:24px;
+animation:fall linear infinite;
+opacity:0.8;
+}
+
+@keyframes fall{
+to{transform:translateY(110vh) rotate(360deg);}
+}
+
+/* 🫧 BUBBLES */
+.bubble{
+position:fixed;
+bottom:-100px;
+width:20px;
+height:20px;
+background:rgba(23,117,4,0.5);
+border-radius:50%;
+animation:rise 12s infinite ease-in;
+}
+
+@keyframes rise{
+to{transform:translateY(-120vh);opacity:0;}
+}
+
+/* PASSWORD SCREEN */
+#lock{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+/* ✅ PROFILE PHOTO */
+.profile-pic{
+width:120px;
+height:120px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid white;
+box-shadow:0 0 25px rgba(255,255,255,0.9);
+margin-bottom:10px;
+animation:heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat{
+0%{transform:scale(1);}
+25%{transform:scale(1.05);}
+50%{transform:scale(1);}
+75%{transform:scale(1.05);}
+100%{transform:scale(1);}
+}
+
+.profile-name{
+font-family:"Great Vibes",cursive;
+font-size:28px;
+color:white;
+margin-bottom:15px;
+text-shadow:0 0 10px rgba(255,255,255,0.8);
+}
+
+input{
+padding:12px;
+border-radius:25px;
+border:1px solid pink;
+outline:none;
+}
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:25px;
+background:#ff4b7d;
+color:white;
+margin-top:10px;
+cursor:pointer;
+}
+
+#main{display:none;}
+
+section{
+padding:70px 20px;
+max-width:900px;
+margin:auto;
+}
+
+.card{
+background:rgba(80,134,184,0.6);
+backdrop-filter:blur(10px);
+padding:25px;
+margin:15px;
+border-radius:20px;
+}
+
+.gallery img{
+width:200px;
+border-radius:15px;
+margin:10px;
+transition:0.4s;
+cursor:pointer;
+}
+.gallery img:hover{transform:scale(1.08);}
+
+h1,h2{
+font-family:Great Vibes;
+color:#ff4b7d;
+}
+
+#popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+color:white;
+z-index:999;
+}
+
+#popup img{
+width:300px;
+border-radius:15px;
+}
+
+#loveVideo{
+position:fixed;
+bottom:15px;
+right:15px;
+width:200px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,0.3);
+z-index:99;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🌸 FLOWERS -->
+<div class="flower" style="left:10%;animation-duration:9s;">🌸</div>
+<div class="flower" style="left:30%;animation-duration:12s;">🌺</div>
+<div class="flower" style="left:50%;animation-duration:10s;">🌼</div>
+<div class="flower" style="left:70%;animation-duration:14s;">🌷</div>
+<div class="flower" style="left:90%;animation-duration:11s;">💮</div>
+<div class="flower" style="left:80%;animation-duration:14s;">❤️</div>
+<div class="flower" style="left:20%;animation-duration:11s;">🌹</div>
+<div class="flower" style="left:45%;animation-duration:11s;">💍</div>
+
+<!-- 🫧 BUBBLES -->
+<div class="bubble" style="left:25%;animation-duration:10s;"></div>
+<div class="bubble" style="left:40%;animation-duration:14s;width:25px;height:25px;"></div>
+<div class="bubble" style="left:60%;animation-duration:12s;"></div>
+<div class="bubble" style="left:85%;animation-duration:16s;width:18px;height:18px;"></div>
+
+<!-- PASSWORD -->
+<div id="lock">
+
+<img src="profile.jpeg" class="profile-pic">
+<div class="profile-name">Thatego ❤️</div>
+
+<h3>A Surprise For You sweet potato💌</h3>
+<input type="password" id="pass" placeholder="Our secret word">
+<button onclick="checkPass()">Unlock ❤️</button>
+<p id="error" style="color:red;"></p>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+
+<audio id="music" loop>
+<source src="loyiso.mp3" type="audio/mp3">
+</audio>
+
+<section>
+<h4>Happy Valentine’s Day</h4>
+<h4>Mulauli ❤️ Thatego</h4>
+<button onclick="playMusic()">Play Our Song 🎵</button>
+</section>
+
+<section class="card">
+<h3>⏳ Our Journey</h3>
+<p id="counter"></p>
+</section>
+
+<section class="card">
+<h3>💌 My Love Letter</h3>
+<p id="message"></p>
+</section>
+
+<section>
+<h3>📸 Our Memories</h3>
+<div class="gallery">
+<img src="1.jpeg" onclick="openPopup(this,'Our first beautiful memory ❤️')">
+<img src="2.jpeg" onclick="openPopup(this,'You make my world brighter 💕')">
+<img src="3.jpeg" onclick="openPopup(this,'Forever with you 💍')">
+<img src="4.jpeg" onclick="openPopup(this,'Our beautiful memory ❤️')">
+<img src="5.jpeg" onclick="openPopup(this,'You make my world brighter 💕')">
+<img src="6.jpeg" onclick="openPopup(this,'Forever with you 💍')">
+<img src="7.jpeg" onclick="openPopup(this,'Our beautiful memory ❤️')">
+<img src="8.jpeg" onclick="openPopup(this,'You make my world brighter 💕')">
+<img src="9.jpeg" onclick="openPopup(this,'Forever with you 💍')">
+<img src="10.jpeg" onclick="openPopup(this,'Our beautiful memory ❤️')">
+<img src="11.jpeg" onclick="openPopup(this,'You make my world brighter 💕')">
+<img src="12.jpeg" onclick="openPopup(this,'Forever with you 💍')">
+<img src="13.jpeg" onclick="openPopup(this,'Our beautiful memory ❤️')">
+
+</div>
+</section>
+
+<section class="card">
+<h3>❤️ Why I Love You</h3>
+<p>• Your smile😊</p>
+<p>• Your hugs🫂</p>
+<p>• Your kindness 💖</p>
+<p>• Everything about you👌</p>
+</section>
+
+<section>
+<h3>🌹 Forever wena, Ndia mufunesa</h3>
+<p>I will always choose you🌹.</p>
+</section>
+
+</div>
+
+<div id="popup" onclick="closePopup()">
+  <img id="popupImg">
+  <p id="popupText"></p>
+</div>
+
+<video id="loveVideo" controls autoplay loop muted>
+  <source src="video.mp4" type="video/mp4">
+</video>
+
+<script>
+const lock = document.getElementById("lock");
+const main = document.getElementById("main");
+const music = document.getElementById("music");
+const popup = document.getElementById("popup");
+const popupImg = document.getElementById("popupImg");
+const popupText = document.getElementById("popupText");
+const message = document.getElementById("message");
+const counter = document.getElementById("counter");
+const error = document.getElementById("error");
+
+function checkPass(){
+let password = "iloveyou";
+if(document.getElementById("pass").value === password){
+lock.style.display="none";
+main.style.display="block";
+music.play().catch(()=>{});
+}else{
+error.innerHTML="Try again mylove 💔";
+}
+}
+
+function playMusic(){music.play();}
+
+const text = `You are my happiness, my heart, my everything.
+Happy Valentine’s Day Lerato la ka ❤️ Ke a go rata😘`;
+
+let i=0;
+function type(){
+if(i<text.length){
+message.innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,40);
+}
+}
+type();
+
+const startDate = new Date("2024-07-07");
+
+function updateCounter(){
+const now = new Date();
+const diff = now - startDate;
+const days = Math.floor(diff/(1000*60*60*24));
+counter.innerHTML = days + " days together ❤️";
+}
+setInterval(updateCounter,1000);
+
+function openPopup(img,text){
+popup.style.display="flex";
+popupImg.src=img.src;
+popupText.innerHTML=text;
+}
+
+function closePopup(){
+popup.style.display="none";
+}
+</script>
+
+</body>
+</html>
